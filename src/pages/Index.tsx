@@ -154,6 +154,42 @@ export default function Index() {
 
             <Card className="hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
               <CardHeader>
+                <Icon name="Award" className="h-12 w-12 text-blue-600 mb-4" />
+                <CardTitle>Аккредитация лабораторий</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-slate-600">
+                  Полное сопровождение процесса аккредитации по ГОСТ ISO/IEC 17025 и получение статуса аккредитованной лаборатории
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+              <CardHeader>
+                <Icon name="FileText" className="h-12 w-12 text-blue-600 mb-4" />
+                <CardTitle>Область аккредитации</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-slate-600">
+                  Разработка и составление документации Области аккредитации с учетом специфики исследований и методов
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+              <CardHeader>
+                <Icon name="Plane" className="h-12 w-12 text-blue-600 mb-4" />
+                <CardTitle>Поставки из США</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-slate-600">
+                  Прямые поставки высокотехнологичного лабораторного оборудования от ведущих американских производителей
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+              <CardHeader>
                 <Icon name="LifeBuoy" className="h-12 w-12 text-blue-600 mb-4" />
                 <CardTitle>Сервисная поддержка</CardTitle>
               </CardHeader>
