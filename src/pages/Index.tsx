@@ -2,9 +2,46 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
+import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog'
 import Icon from '@/components/ui/icon'
+import { useState } from 'react'
 
 export default function Index() {
+  const [isVideoOpen, setIsVideoOpen] = useState(false)
+  
+  const labStages = [
+    {
+      title: "Консультация и планирование",
+      description: "Анализ потребностей, техническое задание, выбор локации",
+      duration: "5-7 дней"
+    },
+    {
+      title: "Проектирование и согласование",
+      description: "Разработка проекта, получение разрешений, 3D-визуализация",
+      duration: "10-15 дней"
+    },
+    {
+      title: "Поставка оборудования",
+      description: "Заказ и доставка оборудования из США, таможенное оформление",
+      duration: "15-20 дней"
+    },
+    {
+      title: "Строительство и монтаж",
+      description: "Возведение помещений, установка систем вентиляции и коммуникаций",
+      duration: "10-15 дней"
+    },
+    {
+      title: "Оснащение и настройка",
+      description: "Установка оборудования, калибровка, тестирование систем",
+      duration: "3-5 дней"
+    },
+    {
+      title: "Аккредитация и запуск",
+      description: "Подача документов на аккредитацию, обучение персонала, запуск",
+      duration: "5-10 дней"
+    }
+  ]
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
       {/* Navigation */}
@@ -47,10 +84,71 @@ export default function Index() {
                   <Icon name="Rocket" className="mr-2 h-5 w-5" />
                   Начать проект
                 </Button>
-                <Button variant="outline" size="lg" className="px-8">
-                  <Icon name="Play" className="mr-2 h-5 w-5" />
-                  Смотреть видео
-                </Button>
+                <Dialog>
+                  <DialogTrigger asChild>
+                    <Button variant="outline" size="lg" className="px-8">
+                      <Icon name="Play" className="mr-2 h-5 w-5" />
+                      Смотреть видео
+                    </Button>
+                  </DialogTrigger>
+                  <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
+                    <div className="space-y-6">
+                      <div>
+                        <h2 className="text-2xl font-bold text-slate-900 mb-4">
+                          Этапы создания лаборатории под ключ
+                        </h2>
+                        <div className="relative bg-slate-900 rounded-lg overflow-hidden">
+                          <img 
+                            src="/img/9db9b187-e671-4311-a6b8-439ab6b49b23.jpg"
+                            alt="Этапы создания лаборатории"
+                            className="w-full h-80 object-cover"
+                          />
+                          <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                            <Button size="lg" className="bg-blue-600 hover:bg-blue-700">
+                              <Icon name="Play" className="mr-2 h-6 w-6" />
+                              Смотреть обзор
+                            </Button>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <div className="grid gap-4">
+                        <h3 className="text-lg font-semibold text-slate-900">
+                          6 этапов — от идеи до аккредитованной лаборатории:
+                        </h3>
+                        {labStages.map((stage, index) => (
+                          <div key={index} className="flex items-start space-x-4 p-4 bg-slate-50 rounded-lg">
+                            <div className="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-bold">
+                              {index + 1}
+                            </div>
+                            <div className="flex-1">
+                              <div className="flex justify-between items-start mb-2">
+                                <h4 className="font-semibold text-slate-900">{stage.title}</h4>
+                                <span className="text-sm text-blue-600 font-medium">{stage.duration}</span>
+                              </div>
+                              <p className="text-slate-600 text-sm">{stage.description}</p>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                      
+                      <div className="bg-blue-50 p-6 rounded-lg">
+                        <div className="flex items-center space-x-3 mb-3">
+                          <Icon name="Clock" className="h-5 w-5 text-blue-600" />
+                          <h4 className="font-semibold text-slate-900">Общий срок реализации</h4>
+                        </div>
+                        <p className="text-slate-700 mb-4">
+                          В среднем полный цикл занимает <strong>45-60 дней</strong> с момента подписания договора 
+                          до получения аккредитации и запуска лаборатории.
+                        </p>
+                        <Button className="w-full bg-blue-600 hover:bg-blue-700">
+                          <Icon name="Calendar" className="mr-2 h-4 w-4" />
+                          Запланировать консультацию
+                        </Button>
+                      </div>
+                    </div>
+                  </DialogContent>
+                </Dialog>
               </div>
               <div className="flex items-center space-x-8 pt-4">
                 <div className="text-center">
